@@ -59,8 +59,5 @@ var obj = new Vue({
             }
         }
     },
-    /* mounted(){
-         this.$refs.abc.focus();
-     }*/
 
 })

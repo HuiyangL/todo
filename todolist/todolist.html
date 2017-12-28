@@ -9,7 +9,7 @@
 <body>
   <div id="root">
       <div class="box">
-          <!--<input type="text" placeholder="请输入代办事项" @keyup.13="add" v-model="con" ref="abc">-->
+
           <input type="text" placeholder="请输入代办事项" @keyup.13="add" v-model="con" v-focus>
           <div class="btns">
               <span :class="{check:status==0}" @click="changeStatus(0)">未完成</span>

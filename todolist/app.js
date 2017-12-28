@@ -23,6 +23,7 @@ var obj = new Vue({
         },
         changeState(item){
             item.state=!item.state;
+            localStorage['todo']=JSON.stringify(this.all);
         },
         del(id){
             this.all = this.all.filter(

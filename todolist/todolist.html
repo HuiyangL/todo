@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<link rel="stylesheet" href="app.css">
+<body>
+  <div id="root">
+      <div class="box">
+          <!--<input type="text" placeholder="请输入代办事项" @keyup.13="add" v-model="con" ref="abc">-->
+          <input type="text" placeholder="请输入代办事项" @keyup.13="add" v-model="con" v-focus>
+          <div class="btns">
+              <span :class="{check:status==0}" @click="changeStatus(0)">未完成</span>
+              <span :class="{check:status==1}" @click="changeStatus(1)">已完成</span>
+              <span :class="{check:status=='all'}" @click="changeStatus('all')">全部</span>
+          </div>
+          <ul class="list" v-show="all.length>0">
+              <li v-for="item in datas" @dblclick="edit(item)">
+                  <div v-if="item.flag==true">
+                      <span class="btn" :class="{red:item.state==1}" @click="changeState(item)"></span>
+                      <p>{{item.title}}</p>
+                      <span class="del" @click="del(item.id)">删除</span>
+                  </div>
+                  <input type="text" v-else="item.flag==false" v-model="item.title" @blur="edit(item)">
+              </li>
+
+          </ul>
+          <div v-show="all.length==0">没有数据</div>
+      </div>
+  </div>
+</body>
+</html>
+<script src="components.js"></script>
+<script src="app.js"></script>
